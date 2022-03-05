@@ -1,0 +1,36 @@
+{
+  "name": "nextjs-with-typescript",
+  "version": "5.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:type": "apollo client:codegen --target=typescript --localSchemaFile=schema.graphql --includes=**/*.tsx",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.10",
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "axios": "^0.26.0",
+    "fp-ts": "^2.11.8",
+    "graphql": "^16.3.0",
+    "io-ts": "^2.2.16",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "swr": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "typescript": "latest"
+  }
+}
