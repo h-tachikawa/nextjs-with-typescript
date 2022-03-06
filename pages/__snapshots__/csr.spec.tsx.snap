@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Csr Component renders without error 1`] = `
+<DocumentFragment>
+  <div>
+    <p>
+      JP - 🇯🇵
+    </p>
+    <p>
+      US - 🇺🇸
+    </p>
+    <div
+      class="MuiBox-root css-1274r9c"
+    >
+      <a
+        class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  active css-nx6gxd-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+      >
+        Go to the home page
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
