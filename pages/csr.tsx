@@ -6,7 +6,7 @@ import Link from "../src/Link";
 import Box from "@mui/material/Box";
 import * as React from "react";
 
-const QUERY = gql`
+export const GET_COUNTRIES_QUERY = gql`
   query GetCountries {
     __typename
     countries {
@@ -19,7 +19,7 @@ const QUERY = gql`
 `;
 
 const Csr: NextPage = () => {
-  const { data, loading, error } = useQuery<GetCountries>(QUERY);
+  const { data, loading, error } = useQuery<GetCountries>(GET_COUNTRIES_QUERY);
 
   if (loading) {
     return <div>loading...</div>;
