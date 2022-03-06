@@ -1,7 +1,7 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Copyright from './Copyright';
+import Copyright from "./Copyright";
 
 export default {
   title: "MyApp/Copyright",

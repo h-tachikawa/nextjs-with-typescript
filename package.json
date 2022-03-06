@@ -10,7 +10,8 @@
     "lint": "next lint",
     "type": "tsc --noEmit",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
@@ -44,7 +45,9 @@
     "babel-loader": "^8.2.3",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-storybook": "^0.5.7",
+    "prettier": "^2.5.1",
     "typescript": "latest"
   }
 }

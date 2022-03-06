@@ -1,7 +1,7 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import ProTip from './ProTip';
+import ProTip from "./ProTip";
 
 export default {
   title: "MyApp/ProTip",
