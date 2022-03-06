@@ -8,7 +8,9 @@
     "build:type": "apollo client:codegen --target=typescript --localSchemaFile=schema.graphql --includes=**/*.tsx",
     "start": "next start",
     "lint": "next lint",
-    "type": "tsc --noEmit"
+    "type": "tsc --noEmit",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
@@ -28,10 +30,21 @@
     "swr": "^1.2.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "0.0.9",
     "@types/node": "latest",
     "@types/react": "latest",
+    "babel-loader": "^8.2.3",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "eslint-plugin-storybook": "^0.5.7",
     "typescript": "latest"
   }
 }
