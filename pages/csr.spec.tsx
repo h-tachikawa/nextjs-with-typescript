@@ -14,12 +14,9 @@ useRouter.mockImplementation(() => ({
   pathname: "/",
 }));
 
-jest.mock("next/link", () => {
-  // @ts-ignore
-  return ({ children }) => {
-    return children;
-  };
-});
+const NextLink = require("next/link");
+const LinkComponent = jest.spyOn(NextLink, "default")
+LinkComponent.mockImplementation(({ children }: React.PropsWithChildren<any>) => children);
 
 export const testRenderer =
   (children: React.ReactNode) =>
