@@ -8,7 +8,8 @@ import { server } from "../mocks/server";
 import React from "react";
 import { GetCountries } from "./__generated__/GetCountries";
 
-const useRouter = jest.spyOn(require("next/router"), "useRouter");
+const Router = require("next/router");
+const useRouter = jest.spyOn(Router, "useRouter");
 useRouter.mockImplementation(() => ({
   pathname: "/",
 }));
