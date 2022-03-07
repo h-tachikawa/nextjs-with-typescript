@@ -30,6 +30,8 @@ export const testRenderer =
   };
 
 describe("Csr Component", () => {
+  beforeEach(() => client.cache.reset());
+
   describe("ordinary", () => {
     it("renders without error", async () => {
       const render = testRenderer(<Csr />);
