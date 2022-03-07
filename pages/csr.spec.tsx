@@ -15,8 +15,8 @@ useRouter.mockImplementation(() => ({
 }));
 
 const NextLink = require("next/link");
-const LinkComponent = jest.spyOn(NextLink, "default")
-LinkComponent.mockImplementation(({ children }: React.PropsWithChildren<any>) => children);
+const LinkComponentStub = jest.spyOn(NextLink, "default")
+LinkComponentStub.mockImplementation(({ children }: React.PropsWithChildren<any>) => children);
 
 export const testRenderer =
   (children: React.ReactNode) =>
