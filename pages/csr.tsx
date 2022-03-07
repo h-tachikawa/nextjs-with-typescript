@@ -8,7 +8,6 @@ import * as React from "react";
 
 export const GET_COUNTRIES_QUERY = gql`
   query GetCountries {
-    __typename
     countries {
       __typename
       code
