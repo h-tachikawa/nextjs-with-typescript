@@ -28,6 +28,9 @@ const Home: NextPage = () => {
         <Link href="/csr" color="secondary">
           Go to the CSR page
         </Link>
+        <Link href="/form" color="secondary">
+          Go to the Form page
+        </Link>
         <ProTip />
         <Copyright />
       </Box>
