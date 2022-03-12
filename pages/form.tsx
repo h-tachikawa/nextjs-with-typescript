@@ -1,36 +1,35 @@
 import { NextPage } from "next";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 import { Grid, Stack, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const Form: NextPage = () => {
-  const validate = (values) => {
-    const errors = {};
-    if (!values.email) {
-      errors.email = "メールアドレスは必須です";
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
-      errors.email = "メールアドレスの形式が不正です";
-    }
-    return errors;
-  };
+const FormSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("メールアドレスが不正です")
+    .required("メールアドレスは必須です"),
+  password: Yup.string()
+    .min(8, "パスワードは8文字以上にしてください")
+    .required("パスワードは必須です"),
+});
 
+const Form: NextPage = () => {
   const formik = useFormik({
     initialValues: {
       email: "",
+      password: "",
     },
-    validate,
+    validationSchema: FormSchema,
     onSubmit: (values) => {
       console.log(values);
     },
   });
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xs">
       <Box
         sx={{
           my: 4,
@@ -42,16 +41,14 @@ const Form: NextPage = () => {
         }}
       >
         <Stack direction="column" spacing={2}>
-          <Typography variant={"h3"}>Form Example</Typography>
           <form onSubmit={formik.handleSubmit}>
             <Grid
               direction="row"
               container
-              spacing={2}
               justifyContent={"center"}
               alignItems={"flex-start"}
             >
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 <TextField
                   id="email"
                   name="email"
@@ -62,13 +59,43 @@ const Form: NextPage = () => {
                   value={formik.values.email}
                   size="small"
                   fullWidth
-                  error={formik.errors.email != null && formik.touched.email}
-                  helperText={formik.errors.email}
+                  error={Boolean(formik.errors.email) && formik.touched.email}
+                  helperText={
+                    formik.errors.email && formik.touched.email
+                      ? formik.errors.email
+                      : " "
+                  }
                 />
               </Grid>
-              <Grid item xs={4}>
-                <Button type="submit" variant="contained" disabled={!formik.isValid}>
-                  Submit
+              <Grid item xs={12}>
+                <TextField
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                  size="small"
+                  fullWidth
+                  error={
+                    Boolean(formik.errors.password) && formik.touched.password
+                  }
+                  helperText={
+                    formik.errors.password && formik.touched.password
+                      ? formik.errors.password
+                      : " "
+                  }
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  disabled={!formik.isValid}
+                  fullWidth
+                >
+                  Sign Up
                 </Button>
               </Grid>
             </Grid>
