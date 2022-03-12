@@ -29,78 +29,64 @@ const Form: NextPage = () => {
 
   return (
     <Container maxWidth="xs">
-      <Box
-        sx={{
-          my: 4,
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "stretch",
-        }}
+      <Grid
+        container
+        my={4}
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="stretch"
       >
-        <Stack direction="column" spacing={2}>
-          <form onSubmit={formik.handleSubmit}>
-            <Grid
-              direction="row"
-              container
-              justifyContent={"center"}
-              alignItems={"flex-start"}
+        <form onSubmit={formik.handleSubmit}>
+          <Grid item xs={12}>
+            <TextField
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              size="small"
+              fullWidth
+              error={Boolean(formik.errors.email) && formik.touched.email}
+              helperText={
+                formik.errors.email && formik.touched.email
+                  ? formik.errors.email
+                  : " "
+              }
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
+              size="small"
+              fullWidth
+              error={Boolean(formik.errors.password) && formik.touched.password}
+              helperText={
+                formik.errors.password && formik.touched.password
+                  ? formik.errors.password
+                  : " "
+              }
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={!formik.isValid}
+              fullWidth
             >
-              <Grid item xs={12}>
-                <TextField
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.email}
-                  size="small"
-                  fullWidth
-                  error={Boolean(formik.errors.email) && formik.touched.email}
-                  helperText={
-                    formik.errors.email && formik.touched.email
-                      ? formik.errors.email
-                      : " "
-                  }
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  id="password"
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.password}
-                  size="small"
-                  fullWidth
-                  error={
-                    Boolean(formik.errors.password) && formik.touched.password
-                  }
-                  helperText={
-                    formik.errors.password && formik.touched.password
-                      ? formik.errors.password
-                      : " "
-                  }
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  disabled={!formik.isValid}
-                  fullWidth
-                >
-                  Sign Up
-                </Button>
-              </Grid>
-            </Grid>
-          </form>
-        </Stack>
-      </Box>
+              Sign Up
+            </Button>
+          </Grid>
+        </form>
+      </Grid>
     </Container>
   );
 };
