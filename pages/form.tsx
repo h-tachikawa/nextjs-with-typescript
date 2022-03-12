@@ -1,22 +1,28 @@
 import { NextPage } from "next";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Grid, Stack, TextField } from "@mui/material";
+import { SchemaOf } from "yup";
+import { Grid, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
+import React from "react";
 
-const SignUpSchema = Yup.object().shape({
+type FormValues = {
+  email: string;
+  password: string;
+};
+
+const SignUpSchema: SchemaOf<FormValues> = Yup.object().shape({
   email: Yup.string()
-    .email("メールアドレスが不正です")
-    .required("メールアドレスは必須です"),
+      .email("メールアドレスが不正です")
+      .required("メールアドレスは必須です"),
   password: Yup.string()
     .min(8, "パスワードは8文字以上にしてください")
     .required("パスワードは必須です"),
 });
 
-const Form: NextPage = () => {
-  const formik = useFormik({
+const FormContainer: NextPage = () => {
+  const formik = useFormik<FormValues>({
     initialValues: {
       email: "",
       password: "",
@@ -91,4 +97,4 @@ const Form: NextPage = () => {
   );
 };
 
-export default Form;
+export default FormContainer;
