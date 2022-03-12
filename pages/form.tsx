@@ -5,9 +5,8 @@ import { Grid, Stack, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
-const FormSchema = Yup.object().shape({
+const SignUpSchema = Yup.object().shape({
   email: Yup.string()
     .email("メールアドレスが不正です")
     .required("メールアドレスは必須です"),
@@ -22,7 +21,7 @@ const Form: NextPage = () => {
       email: "",
       password: "",
     },
-    validationSchema: FormSchema,
+    validationSchema: SignUpSchema,
     onSubmit: (values) => {
       console.log(values);
     },
