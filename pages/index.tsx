@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         <Link href="/about" color="secondary">
           Go to the about page
         </Link>
-        <Link href="/csr" color="secondary">
+        <Link href="/csr/1" color="secondary">
           Go to the CSR page
         </Link>
         <Link href="/form" color="secondary">
