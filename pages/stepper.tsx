@@ -54,6 +54,7 @@ const StepperContainer: NextPage = () => {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    scrollToTop();
   };
 
   const handleStep = (step: number) => () => {
