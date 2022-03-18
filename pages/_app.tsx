@@ -14,10 +14,12 @@ import {
   ThemeOptions,
   IconButton,
   Toolbar,
+  Grid,
 } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import { AccountCircle } from "@mui/icons-material";
+import Container from "@mui/material/Container";
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -32,7 +34,7 @@ export const themeOptions: ThemeOptions = {
       main: "#61dafb",
     },
     secondary: {
-      main: "#f50057",
+      main: "#fb61da",
     },
   },
 };
@@ -76,7 +78,17 @@ export default function MyApp(props: MyAppProps) {
               </IconButton>
             </Toolbar>
           </AppBar>
-          <Component {...pageProps} />
+          <Container>
+            <Grid
+              container
+              my={4}
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="stretch"
+            >
+              <Component {...pageProps} />
+            </Grid>
+          </Container>
         </ThemeProvider>
       </CacheProvider>
     </ApolloProvider>
