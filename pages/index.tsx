@@ -28,8 +28,11 @@ const Home: NextPage = () => {
         <Link href="/csr/1" color="secondary">
           Go to the CSR page
         </Link>
-        <Link href="/form" color="secondary">
-          Go to the Form page
+        <Link href="/login" color="secondary">
+          Go to the Login page
+        </Link>
+        <Link href="/stepper" color="secondary">
+          Go to the Stepper Page
         </Link>
         <ProTip />
         <Copyright />

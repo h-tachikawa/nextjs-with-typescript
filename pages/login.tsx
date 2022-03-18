@@ -21,7 +21,7 @@ const SignUpSchema: SchemaOf<FormValues> = Yup.object().shape({
     .required("パスワードは必須です"),
 });
 
-const FormContainer: NextPage = () => {
+const LoginContainer: NextPage = () => {
   const formik = useFormik<FormValues>({
     initialValues: {
       email: "",
@@ -97,4 +97,4 @@ const FormContainer: NextPage = () => {
   );
 };
 
-export default FormContainer;
+export default LoginContainer;
