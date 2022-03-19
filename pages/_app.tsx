@@ -26,8 +26,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { AccountCircle, Inbox, Mail } from "@mui/icons-material";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from "react";
+import { useRouter } from "next/router";
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -52,6 +52,7 @@ const theme = createTheme(themeOptions);
 type Props = {
   open: boolean;
   onClose: () => void;
+  onMenuClick: () => void;
 };
 
 export const TemporaryDrawer = (props: Props) => {
@@ -59,14 +60,16 @@ export const TemporaryDrawer = (props: Props) => {
     <Drawer open={props.open} onClose={props.onClose}>
       <Box sx={{ width: 300 }} role="presentation">
         <List>
-          {["Inbox", "Starred", "Send email", "Top"].map((text, index) => (
-            <ListItem button key={text} onClick={props.onClose}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <Inbox /> : <Mail />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {["Inbox", "Starred", "Send email", "Topへ戻る"].map(
+            (text, index) => (
+              <ListItem button key={text} onClick={props.onMenuClick}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <Inbox /> : <Mail />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            )
+          )}
         </List>
         <Divider />
       </Box>
@@ -81,6 +84,10 @@ export default function MyApp(props: MyAppProps) {
   const router = useRouter();
 
   const handleClose = async () => {
+    toggleDrawer();
+  };
+
+  const handleMenuClick = async () => {
     toggleDrawer();
     await router.push("/");
   };
@@ -121,8 +128,12 @@ export default function MyApp(props: MyAppProps) {
               </IconButton>
             </Toolbar>
           </AppBar>
-          <TemporaryDrawer open={drawerOpen} onClose={handleClose} />
-          <Container>
+          <TemporaryDrawer
+            open={drawerOpen}
+            onClose={handleClose}
+            onMenuClick={handleMenuClick}
+          />
+          <Container maxWidth="md">
             <Grid
               container
               my={4}

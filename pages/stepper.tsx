@@ -152,9 +152,6 @@ const StepperContainer: NextPage = () => {
                 Back
               </Button>
               <Box sx={{ flexGrow: 1 }} />
-              <Button onClick={handleNext} sx={{ mr: 1 }}>
-                Next
-              </Button>
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
                   <Typography
