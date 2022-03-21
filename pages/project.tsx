@@ -74,7 +74,7 @@ const ProjectContainer: NextPage = () => {
               </AvatarGroup>
             </Grid>
             <Grid container direction={"column"} item xs={12}>
-              <Typography variant={"caption"} color={"gray"}>
+              <Typography variant={"body2"} color={"gray"}>
                 使用技術
               </Typography>
               <Stack direction="row" spacing={1}>
