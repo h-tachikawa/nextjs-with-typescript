@@ -114,7 +114,7 @@ export default function MyApp(props: MyAppProps) {
                 <MenuIcon />
               </IconButton>
               <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                UR Rental Housing Visualizer
+                Next.js Example
               </Typography>
               <IconButton
                 size="large"
@@ -134,13 +134,7 @@ export default function MyApp(props: MyAppProps) {
             onMenuClick={handleMenuClick}
           />
           <Container maxWidth="md">
-            <Grid
-              container
-              my={4}
-              flexDirection="column"
-              justifyContent="center"
-              alignItems="stretch"
-            >
+            <Grid container justifyContent={'center'}>
               <Component {...pageProps} />
             </Grid>
           </Container>
